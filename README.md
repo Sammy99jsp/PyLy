@@ -41,20 +41,20 @@ We make use of two key traits:
 * `T: Expose<L>` where `L: Language` signifies that type `T` is exposed (should be included)
 in the output stubs for language `L`.
 
-    &nbsp;
-    As an example, `Expose<Python>` is implemented for many common types:
+  &nbsp;
+  As an example, `Expose<Python>` is implemented for many common types:
 
-    | Rust types | Python Type |
-    |-----------|-------------|
-    | `bool` | `bool` |
-    | `u8` - `u128`, `usize`, `i8` - `i128`, `isize`| `int` |
-    | `f32` `f64` | `float` |
-    |`char` `&str` `String` `Box<str>` `Rc<str>` `Arc<str>`| `str` |
-    | `()` | `None` |
-    | `(T1,)` &mdash; tuples up to 12 items | `tuple[T1,]` - &hellip; |
-    | 🚧 (Planned) `Option<T>` | `typing.Option<T>` |
+| Rust types | Python Type |
+|-----------|-------------|
+| `bool` | `bool` |
+| `u8` - `u128`, `usize`, `i8` - `i128`, `isize`| `int` |
+| `f32` `f64` | `float` |
+|`char` `&str` `String` `Box<str>` `Rc<str>` `Arc<str>`| `str` |
+| `()` | `None` |
+| `(T1,)` &mdash; tuples up to 12 items | `tuple[T1,]` - &hellip; |
+| 🚧 (Planned) `Option<T>` | `typing.Option<T>` |
 
-    Every `T: Expose<L>` has a constant `T::AS: L::Type` which is the type representation for `T` in language `L`. This can be be used at compile-time (as `T::AS` is `const` [^1]).
+  Every `T: Expose<L>` has a constant `T::AS: L::Type` which is the type representation for `T` in language `L`. This can be be used at compile-time (as `T::AS` is `const` [^1]).
 
 ### 2. Helper Macros
 
