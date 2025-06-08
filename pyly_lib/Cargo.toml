@@ -1,0 +1,12 @@
+[package]
+name = "pyly-lib"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+macros = ["dep:pyly-macros"]
+default = ["macros"]
+
+[dependencies]
+const_format = { version = "0.2.34", features = ["rust_1_83"] }
+pyly-macros = { path = "../macros", optional = true }
